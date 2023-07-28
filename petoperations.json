@@ -1,0 +1,23 @@
+{
+    "name": "Add Pet",
+    "request": {
+      "method": "POST",
+      "url": {
+        "raw": "https://petstore.swagger.io/v2/pet",
+        "protocol": "https",
+        "host": ["petstore.swagger.io"],
+        "path": ["v2", "pet"]
+      },
+      "header": [
+        {
+          "key": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "mode": "raw",
+        "raw": "{\n  \"id\": 12345,\n  \"name\": \"Fluffy\",\n  \"status\": \"available\"\n}"
+      }
+    }
+  }
+  
