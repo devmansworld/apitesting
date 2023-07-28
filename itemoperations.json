@@ -1,0 +1,90 @@
+{
+    "info": {
+      "_postman_id": "YOUR_UNIQUE_POSTMAN_COLLECTION_ID",
+      "name": "Swagger Pet Store API",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+      {
+        "name": "Create User",
+        "request": {
+          "method": "POST",
+          "header": [
+            { "key": "Content-Type", "value": "application/json" }
+          ],
+          "url": {
+            "raw": "https://petstore.swagger.io/v2/user",
+            "protocol": "https",
+            "host": [ "petstore.swagger.io" ],
+            "path": [ "v2", "user" ]
+          },
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"username\": \"john_doe\",\n  \"password\": \"secretpassword\",\n  \"email\": \"john.doe@example.com\"\n}"
+          }
+        }
+      },
+      {
+        "name": "Login",
+        "request": {
+          "method": "POST",
+          "header": [
+            { "key": "Content-Type", "value": "application/json" }
+          ],
+          "url": {
+            "raw": "https://petstore.swagger.io/v2/user/login",
+            "protocol": "https",
+            "host": [ "petstore.swagger.io" ],
+            "path": [ "v2", "user", "login" ]
+          },
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"username\": \"john_doe\",\n  \"password\": \"secretpassword\"\n}"
+          }
+        }
+      },
+      {
+        "name": "Logout (Simulated)",
+        "event": [
+          {
+            "listen": "prerequest",
+            "script": {
+              "type": "text/javascript",
+              "exec": "pm.sendRequest({\n  url: 'https://petstore.swagger.io/v2/user/logout',\n  method: 'GET',\n  header: {\n    'Authorization': 'Bearer YOUR_AUTH_TOKEN_HERE'\n  }\n}, (err, response) => {\n  if (!err) {\n    console.log('Simulated logout successful.');\n  } else {\n    console.log('Simulated logout failed.');\n  }\n});"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Search Pets",
+        "request": {
+          "method": "GET",
+          "url": {
+            "raw": "https://petstore.swagger.io/v2/pet/findByStatus",
+            "protocol": "https",
+            "host": [ "petstore.swagger.io" ],
+            "path": [ "v2", "pet", "findByStatus" ],
+            "query": [
+              {
+                "key": "status",
+                "value": "available"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "name": "Get Product Details",
+        "request": {
+          "method": "GET",
+          "url": {
+            "raw": "https://petstore.swagger.io/v2/store/inventory",
+            "protocol": "https",
+            "host": [ "petstore.swagger.io" ],
+            "path": [ "v2", "store", "inventory" ]
+          }
+        }
+      }
+    ]
+  }
+  
